@@ -45,7 +45,7 @@ test:
     - rd /s /q monkeytype  # [win]
     - del pytest.ini  # [win]
     # FIXME: not sure about this one
-    - python -m pytest -k "not test_print_stub_ignore_existing_annotations and not test_display_list_of_modules and not test_includes_otherwise and not test_pathlike_parameter and not test_get_diff"  # [win]
+    - python -m pytest -k "not print_stub_ignore_existing_annotations and not display_list_of_modules and not includes_otherwise and not pathlike_parameter and not get_diff and not retype_failure and not no_traces and not display_sample_count_from_cli and not retype_failure"  # [win]
 
 
 
