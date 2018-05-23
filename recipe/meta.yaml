@@ -1,6 +1,6 @@
 {% set name = "MonkeyType" %}
-{% set version = "18.2.0" %}
-{% set sha256 = "96c8c432059fea74a551fd79a69a3266585cb18d2155359e0ac41e0f67d9b353" %}
+{% set version = "18.5.1" %}
+{% set sha256 = "e170d1224eec57ffb0c66293eb55cab30e4acb116e5771c40b31ed0399878bcf" %}
 
 package:
   name: {{ name|lower }}
