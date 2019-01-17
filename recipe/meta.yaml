@@ -36,7 +36,7 @@ test:
     - cython
     - django
     - pytest
-    - gcc
+    - {{ compiler('c') }}
   imports:
     - monkeytype
   commands:
