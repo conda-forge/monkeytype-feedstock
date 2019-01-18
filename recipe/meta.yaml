@@ -1,5 +1,5 @@
 {% set name = "MonkeyType" %}
-{% set version = "19.1.0" %}
+{% set version = "19.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 97ee789c37f5ad584bdc7fb949fc6b6254f38acde0f82ec11f8ddcfbe8f534fa
+    sha256: 497379907318f98def803bba3bd228a3261aabce43f00f460ff76f495016a464
   - folder: src
     url: https://github.com/Instagram/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: f399158fb86cadb043d53f0e202f03efbfa3a1e3cf63f9ba265d8cdb2c650450
+    sha256: 497379907318f98def803bba3bd228a3261aabce43f00f460ff76f495016a464
 
 build:
   number: 0
