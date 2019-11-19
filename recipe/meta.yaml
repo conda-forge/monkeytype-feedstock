@@ -28,6 +28,7 @@ requirements:
   run:
     - python >=3.6
     - retype
+    - mypy_extensions
 
 test:
   source_files:
