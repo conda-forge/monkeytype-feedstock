@@ -8,7 +8,7 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: c137be1c47db1c7905e778aa04161a9667608d37f3e4746dac9a5fb268c00313
+    sha256: 1e951ea7ce9c7f1e4b56608404c55dff30f4ff86cba738c651aff1a89d92ab76
   - folder: src
     url: https://github.com/Instagram/{{ name }}/archive/v{{ version }}.tar.gz
     sha256: c137be1c47db1c7905e778aa04161a9667608d37f3e4746dac9a5fb268c00313
