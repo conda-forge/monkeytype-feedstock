@@ -26,9 +26,10 @@ requirements:
     - python >=3.6
     - setuptools
   run:
+    - mypy_extensions
     - python >=3.6
     - retype
-    - mypy_extensions
+    - stringcase
 
 test:
   source_files:
