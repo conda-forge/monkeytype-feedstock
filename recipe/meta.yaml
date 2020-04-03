@@ -29,7 +29,6 @@ requirements:
     - mypy_extensions
     - python >=3.6
     - retype
-    - stringcase
 
 test:
   source_files:
