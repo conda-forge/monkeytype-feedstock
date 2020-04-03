@@ -28,7 +28,7 @@ requirements:
   run:
     - mypy_extensions
     - python >=3.6
-    - retype
+    - libcst
 
 test:
   source_files:
