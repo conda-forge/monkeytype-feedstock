@@ -18,10 +18,10 @@ build:
   noarch: python
   entry_points:
     - monkeytype=monkeytype.cli:entry_point_main
-  script: cd dist && python -m pip install --no-deps --ignore-installed .
+  script: cd dist && {{ PYTHON }} -m pip install --no-deps --ignore-installed .
 
 requirements:
-  build:
+  host:
     - pip
     - python >=3.6
   run:
