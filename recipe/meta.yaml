@@ -1,5 +1,5 @@
 {% set name = "MonkeyType" %}
-{% set version = "21.5.0" %}
+{% set version = "22.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,24 +8,24 @@ package:
 source:
   - folder: dist
     url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: e47089f032e65f9bc7b4146725285837b75136f28e3025b434d494f6d1b3cb87
+    sha256: 6b0c00b49dcc5095a2c08d28246cf005e05673fc51f64d203f9a6bca2036dfab
   - folder: src
     url: https://github.com/Instagram/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: d546309fdba80022db35c8095c0bc38b03787f45d7b4fecd91de235a8b03e8dc
+    sha256: 8ef6cb3cdcf00128e5ee60fd01bee0f7f953fe1f5acac5d02f31198e42535ca6
 
 build:
   number: 0
   noarch: python
   entry_points:
     - monkeytype=monkeytype.cli:entry_point_main
-  script: cd dist && python -m pip install --no-deps --ignore-installed .
+  script: cd dist && {{ PYTHON }} -m pip install --no-deps --ignore-installed .
 
 requirements:
-  build:
+  host:
     - pip
     - python >=3.6
   run:
-    - libcst >=0.3.5
+    - libcst >=0.3.7
     - mypy_extensions
     - python >=3.6
 
