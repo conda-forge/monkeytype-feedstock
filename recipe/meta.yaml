@@ -1,33 +1,32 @@
-{% set name = "MonkeyType" %}
-{% set version = "22.2.0" %}
+{% set version = "23.3.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: monkeytype
   version: {{ version }}
 
 source:
   - folder: dist
-    url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-    sha256: 6b0c00b49dcc5095a2c08d28246cf005e05673fc51f64d203f9a6bca2036dfab
+    url: https://pypi.io/packages/source/m/monkeytype/MonkeyType-{{ version }}.tar.gz
+    sha256: f2595db34d57cdddbde5a990117a50a22f373dbb917a2a0fa91ffbe07dfe0313
   - folder: src
-    url: https://github.com/Instagram/{{ name }}/archive/v{{ version }}.tar.gz
-    sha256: 8ef6cb3cdcf00128e5ee60fd01bee0f7f953fe1f5acac5d02f31198e42535ca6
+    url: https://github.com/Instagram/monkeytype/archive/v{{ version }}.tar.gz
+    sha256: c39656d9c1c2f43e7b0d0822ab1ef80ffa111f1a48d1e9886fd7a949b27e47f8
 
 build:
   number: 0
   noarch: python
-  entry_points:
-    - monkeytype=monkeytype.cli:entry_point_main
   script: cd dist && {{ PYTHON }} -m pip install --no-deps --ignore-installed .
+  entry_points:
+    - monkeytype = monkeytype.cli:entry_point_main
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.7
   run:
-    - libcst >=0.3.7
+    - libcst >=0.4.4
     - mypy_extensions
-    - python >=3.6
+    - python >=3.7
 
 test:
   source_files:
@@ -38,14 +37,13 @@ test:
     - django
     - pip
     - pytest
+    - pytest-cov
   imports:
     - monkeytype
   commands:
     - python -m pip check
     - monkeytype --help
-    - cd src && cd tests
-    - python -m pytest -k "not test_includes_otherwise"
-
+    - cd src && pytest -vv -k "not test_includes_otherwise" --cov=monkeytype --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=90
 
 about:
   home: https://github.com/Instagram/MonkeyType
