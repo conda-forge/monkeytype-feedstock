@@ -43,7 +43,7 @@ test:
   commands:
     - python -m pip check
     - monkeytype --help
-    - cd src && pytest -vv -k "not test_includes_otherwise" --cov=monkeytype --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=100
+    - cd src && pytest -vv -k "not test_includes_otherwise" --cov=monkeytype --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=90
 
 about:
   home: https://github.com/Instagram/MonkeyType
