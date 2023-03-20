@@ -15,9 +15,9 @@ source:
 build:
   number: 0
   noarch: python
-  entry_points:
-    - monkeytype=monkeytype.cli:entry_point_main
   script: cd dist && {{ PYTHON }} -m pip install --no-deps --ignore-installed .
+  entry_points:
+    - monkeytype = monkeytype.cli:entry_point_main
 
 requirements:
   host:
@@ -37,14 +37,13 @@ test:
     - django
     - pip
     - pytest
+    - pytest-cov
   imports:
     - monkeytype
   commands:
     - python -m pip check
     - monkeytype --help
-    - cd src && cd tests
-    - python -m pytest -k "not test_includes_otherwise"
-
+    - cd src && pytest -vv -k "not test_includes_otherwise" --cov=monkeytype --cov-report=term-missing:skip-covered --no-cov-on-fail --cov-fail-under=100
 
 about:
   home: https://github.com/Instagram/MonkeyType
