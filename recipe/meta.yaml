@@ -6,14 +6,14 @@ package:
 
 source:
   - folder: dist
-    url: https://pypi.io/packages/source/m/monkeytype/MonkeyType-{{ version }}.tar.gz
+    url: https://pypi.org/packages/source/m/monkeytype/MonkeyType-{{ version }}.tar.gz
     sha256: f2595db34d57cdddbde5a990117a50a22f373dbb917a2a0fa91ffbe07dfe0313
   - folder: src
     url: https://github.com/Instagram/monkeytype/archive/v{{ version }}.tar.gz
     sha256: c39656d9c1c2f43e7b0d0822ab1ef80ffa111f1a48d1e9886fd7a949b27e47f8
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: cd dist && {{ PYTHON }} -m pip install --no-deps --ignore-installed .
   entry_points:
@@ -22,11 +22,11 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - libcst >=0.4.4
     - mypy_extensions
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   source_files:
@@ -38,6 +38,7 @@ test:
     - pip
     - pytest
     - pytest-cov
+    - python {{ python_min }}
   imports:
     - monkeytype
   commands:
